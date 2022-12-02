@@ -24,16 +24,16 @@ vector<int> read_file_and_cast_values_to_int() {
       numbers.push_back(num);
     }
 
-		numbers.push_back(-1);
+    numbers.push_back(-1);
 
     myfile.close();
   }
 
-	return numbers;
+  return numbers;
 }
 
 vector<int> group_calories_amounts_per_elf() {
-	vector<int> calories = read_file_and_cast_values_to_int();
+  vector<int> calories = read_file_and_cast_values_to_int();
 
   int amount_of_calories_per_elf;
   int switch_elf = 0;
@@ -57,39 +57,39 @@ vector<int> group_calories_amounts_per_elf() {
     }
   }
 
-	return collection_of_elfs_calories;
+  return collection_of_elfs_calories;
 }
 
 vector<int> sort(vector<int> col) {
   for (int i = 0; i < col.size(); i++) {
-		for (int j = i + 1; j < col.size(); j++) {
-			if (col.at(i) > col.at(j)) {
-				int r = col.at(i);
+    for (int j = i + 1; j < col.size(); j++) {
+      if (col.at(i) > col.at(j)) {
+        int r = col.at(i);
 
         col.at(i) = col.at(j);
         col.at(j) = r;
-			}
-		}
+      }
+    }
   }
 
-	return col;
+  return col;
 }
 
 int main() {
-	vector<int> collection_of_elfs_calories = sort(group_calories_amounts_per_elf());
-	
-	int top_1 = collection_of_elfs_calories.at(collection_of_elfs_calories.size() - 1);
-	int top_2 = collection_of_elfs_calories.at(collection_of_elfs_calories.size() - 2);
-	int top_3 = collection_of_elfs_calories.at(collection_of_elfs_calories.size() - 3);
+  vector<int> collection_of_elfs_calories = sort(group_calories_amounts_per_elf());
+  
+  int top_1 = collection_of_elfs_calories.at(collection_of_elfs_calories.size() - 1);
+  int top_2 = collection_of_elfs_calories.at(collection_of_elfs_calories.size() - 2);
+  int top_3 = collection_of_elfs_calories.at(collection_of_elfs_calories.size() - 3);
 
   cout << "ELF Carrying the most calories carries exactly: " << top_1 << "\n";
-	cout << "Let's find top 3..." << "\n";
+  cout << "Let's find top 3..." << "\n";
 
   cout << "Top 1: " << top_1 << "\n";
   cout << "Top 2: " << top_2 << "\n";
   cout << "Top 3: " << top_3 << "\n";
 
-	cout << "Total amount: " << top_1 + top_2 + top_3;
+  cout << "Total amount: " << top_1 + top_2 + top_3;
 
   return 0;
 }
